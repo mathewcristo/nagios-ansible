@@ -1,0 +1,34 @@
+---
+#### This task file creates a user, two groups, updates apt cache and installs build dependencies
+- name: Update apt cache
+  apt: update_cache=yes
+
+- name: Create nagcmd and nagios Groups
+  group: name="{{ item }}" state=present
+  with_items:
+    - "{{ nagcmd_group }}"
+    - "{{ nagios_group }}"
+  tags:
+    - group
+
+- name: Create nagios User and add to nagcmd Group
+  user: name={{ user }} group={{ nagcmd_group }}
+  tags:
+    - group
+
+- name: Update repo cache and install build dependencies
+  yum: name={{ item }} state=present force=yes
+  with_items:
+    - gcc 
+    - glibc  
+    - glibc-common 
+    - wget 
+    - unzip 
+    - httpd 
+    - php 
+    - gd 
+    - gd-devel 
+    - perl 
+    - postfix
+  tags:
+    - build_setup
