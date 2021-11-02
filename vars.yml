@@ -2,3 +2,6 @@ nagios_version: 4.4.6
 nagios_url: https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.4.6.tar.gz?__hstc=118811158.69651a41e3a56df7843e9980194aacaa.1635765082039.1635765082039.1635765082039.1&__hssc=118811158.3.1635765082040&__hsfp=2997538192
 nagcmd_group: NAGIOS_COMMAND_GROUP
 nagios_group: NAGIOS_GROUP
+user: USER
+plugin_dwld_url: https://github.com/nagios-plugins/nagios-plugins/archive/release-2.3.3.tar.gz
+plugin_version: 2.3.3

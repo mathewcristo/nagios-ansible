@@ -23,12 +23,24 @@
     - make clean
     - make all
     - make install
+    - make install-daemoninit #check
     - make install-commandmode
     - make install-init
     - make install-config
     - /usr/bin/install -c -m 644 sample-config/httpd.conf /etc/apache2/sites-available/nagios.conf
   tags:
    - cfg_nagios
+
+#check the below before proceeding
+- name: enable daemoninit
+  command: systemctl enable httpd.service
+
+- name: permit traffic
+  command: ufw allow Apache
+
+- name: reload ufw
+  command: ufw reload
+  
 
 - name:  Add the web server user to the group
   user: name=www-data group="{{ nagcmd_group }}"

@@ -1,0 +1,39 @@
+define host {
+        use                             linux-server
+        host_name                       {{ remote_host_name }}
+        host_group                      {{ remote_host_group }}
+        alias                           {{ alias }}
+        address                         {{ remote_host_ip }}
+}
+
+
+define service{
+        use                     generic-service,srv-pnp
+        hostgroup_name          {{ remote_host_name }}
+        service_description     Host RAM Usage
+        check_command           check_nrpe!check_mem
+}
+
+
+define service{
+        use                     generic-service,srv-pnp
+        hostgroup_name          {{ remote_host_group }}
+        service_description     Host CPU Usage
+        check_command           check_nrpe!check_cpu
+}
+
+define service{
+        use                     generic-service,srv-pnp
+        hostgroup_name          {{ remote_host_group }}
+        service_description     Root Volume
+        check_command           check_nrpe_arg!check_disk!20%!10%!/dev/sda1
+}
+
+
+
+# define service {
+#         use                             generic-service
+#         host_name                       {{ remote_host_name }}
+#         service_description             PING
+#         check_command                   check_ping!100.0,20%!500.0,60%
+# }
