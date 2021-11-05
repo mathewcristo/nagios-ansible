@@ -2,6 +2,15 @@ nagios_version: 4.4.6
 nagios_url: https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.4.6.tar.gz?__hstc=118811158.69651a41e3a56df7843e9980194aacaa.1635765082039.1635765082039.1635765082039.1&__hssc=118811158.3.1635765082040&__hsfp=2997538192
 nagcmd_group: NAGIOS_COMMAND_GROUP
 nagios_group: NAGIOS_GROUP
-user: USER
+user: nagios
 plugin_dwld_url: https://github.com/nagios-plugins/nagios-plugins/archive/release-2.3.3.tar.gz
 plugin_version: 2.3.3
+server_user: SERVER_USER
+server_ip: VM_PUBLIC_IP
+user_email: YOUR_EMAIL
+username: ADMIN_USERNAME
+password: ADMIN_PASSWORD
+remote_host_name: REMOTE_VM_NAME
+remote_host_ip: REMOTE_VM_IP
+remote_host_group: REMOTE_HOST_GROUP
+alias: REMOTE_VM_ALIAS

@@ -6,7 +6,7 @@
   vars_files:
   - vars.yml
   roles:
-    - defaults
+    - nagios-defaults
     - nagios-install
     - nagios-plugins
     - configure-nagios

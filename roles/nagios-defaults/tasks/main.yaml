@@ -17,20 +17,27 @@
     - group
 
 
-
+#dependencies need to be verified (diff sites showing diff results)
 - name: Update repo cache and install build dependencies
   apt: name={{ item }} state=present force=yes
   with_items:
+    - build-essential
     - autoconf 
     - gcc 
     - libc6 
     - make 
     - wget 
     - unzip 
+    - openssl
     - apache2 
     - php 
+    - perl
+    - php-gd
     - libapache2-mod-php7.4 
     - libgd-dev
-    - apache2
+    - libperl-dev
+    - libssl-dev 
+    - daemon
+    - apache2-utils 
   tags:
     - build_setup
